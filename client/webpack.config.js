@@ -25,21 +25,50 @@ module.exports = () => {
           title:'J.A.T.E'
         }
       ),
-      (
-        new WebpackPwaManifest(
+      
+      new WebpackPwaManifest(
           {
             fingerprints:false,
             inject:true,
             name:'Just Another Text Editor',
             short_name:'J.A.T.E',
-            description:'A simple text editor that works both online and offline'
+            description:'A simple text editor that works both online and offline',
+            background_color:'#3679a3',
+            theme_color:'#3679a3',
+            start_url:'/',
+            publicPath:'/'
           }
-        )
+        ),
+      
+      new InjectManifest(
+        {
+          swSrc:'./src-sw.js',
+          swDest:'src-sw.js'
+        }
+      
+
       )
     ],
 
     module: {
       rules: [
+        {
+          test:/\.css$/,
+          use:['style-loader','css-loader'],
+        },
+        {
+          test:/\.m?js?/,
+          exclude:/node_modules/,
+          use:
+          {
+            loader:'babel-loader',
+            options:
+            {
+              presets:['@babel/present-env'],
+              plugins:['@babel/plugin-proposal-object-rest-spread','@babel/transform-runtime']
+            }
+          }
+        }
         
       ],
     },
