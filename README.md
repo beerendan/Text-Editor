@@ -18,8 +18,6 @@ Begin by cloning the repository, then install node.js with 'npm install'
 ## Usage
 Launch the app with 'npm start' and navigate to the browser to being editing your text!
 
-Screenshot of live project: ![screenshot1](N/A)
-
 Link to deployed project: https://texteditorbrendan-b73996a4bcc9.herokuapp.com/
 
 Link to project gitHub repository: https://github.com/beerendan/Text-Editor
